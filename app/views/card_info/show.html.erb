@@ -1,2 +1,8 @@
 <h2><%= @card.title %></h2>
 <p><%= @card.body %></p>
+<hr>
+<%= link_to "edit", edit_card_info_path(@card), :class => 'btn btn-light' %>
+<%= link_to "delete", card_info_path(@card),
+    method: :delete,
+    data: {confirm: 'Are you sure?'},
+    :class => 'btn btn-danger' %>
