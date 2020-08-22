@@ -1,10 +1,10 @@
 class CardInfoController < ApplicationController
     def index
-        
+        @cards = CardInfo.all
     end
 
     def show
-    @post = Card.find(params[:id])
+        @card = CardInfo.find(params[:id])
     end
 
     def new
@@ -13,13 +13,14 @@ class CardInfoController < ApplicationController
 
     def create
         # render plain: params[:card_info].inspect
-        @post = Card.new(card_info_params)
+        @card = CardInfo.new(card_info_params)
 
-        @post.save
-        redirect_to @post
+        @card.save
+        redirect_to @card
     end
 
     private def card_info_params
         params.require(:card_info).permit(:title, :body)
     end
+
 end
