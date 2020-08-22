@@ -1,5 +1,5 @@
-<h1>Add a Card</h1>
-<%= form_for :card_info, url: card_info_index_path  do |f| %>
+<h1>Edit Card</h1>
+<%= form_for :card_info, url: card_info_path(@card), method: :patch  do |f| %>
     <% if @card.errors.any? %>
         <% @card.errors.full_messages.each do |msg| %>
             <div class="alert alert-danger"><%= msg %></div>
@@ -7,11 +7,11 @@
     <% end %>
     <p>
         <%= f.label :title %><br>
-        <%= f.text_field(:title, {:class => 'form-control'}) %>
+        <%= f.text_field(:title, {:class => 'form-control', :value=> @card.title}) %>
     </p>
      <p>
         <%= f.label :body %><br>
-        <%= f.text_area(:body, {:class => 'form-control'}) %>
+        <%= f.text_area(:body, {:class => 'form-control', :value=> @card.body}) %>
     </p>
     <p>
         <%= f.submit(:class => 'btn btn-primary') %>
