@@ -1,5 +1,8 @@
-<h1>Blog posts</h1>
+<h1>Cards Index</h1>
 <% @cards.each do |card| %>
-<h3><%= card.title %></h3>
-<p><%= card.body %></p>
+    <div class="card text-center text-white bg-info mb-3" style="max-width: 18rem;">
+        <h3><%= card.title %></h3>
+        <p><%= card.body %></p>
+        <%= link_to "click to view", card_info_path(card), :class => 'btn btn-light' %>
+    </div>
 <% end %>
