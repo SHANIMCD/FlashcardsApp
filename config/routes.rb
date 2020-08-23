@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about', as: 'about'
 
-  resources :card_info
+  resources :card_info do
+    resources :collections
+  end
 end
